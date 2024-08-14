@@ -1,0 +1,11 @@
+
+<h1>Profile</h1>
+
+<p><strong>Email:</strong> <%= @user.email %></p>
+
+<% if @user.otp_required_for_login %>
+  <p><strong>Two-Factor Authentication:</strong> Enabled</p>
+<% else %>
+  <p><strong>Two-Factor Authentication:</strong> Not Enabled</p>
+  <%= link_to 'Set up Two-Factor Authentication', show_otp_qr_path %>
+<% end %>
